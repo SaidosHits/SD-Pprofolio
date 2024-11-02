@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Documentation</title>
+
+</head>
+<body>
+    <h1>Presentation of product 🎉</h1>
+    <p>The SD Portfolio is a responsive and dynamic web project that showcases you skills, experience, and accomplishments as a web developer. Crafted using a combination of HTML, CSS, and JavaScript, this portfolio reflects both you technical abilities and design sensibilities.</p>
+    <h2>How to modify skill progress ?</h2>
+    <img src="./images/skills.png" alt="">
+    <ul>
+        <li>
+        <p>You can easily customize skill progress by specifying the skill name and its corresponding percentage here.</p>
+
+        </li>
+    </ul>
+    <pre style="tab-size: 2;" >
+        <code class="language-html">
+            &lt;h3&gt;Skill name &lt;span&gt;90%&lt;/span&gt;&lt;/h3&gt;
+        </code>
+    </pre>
+    <ul>
+        <li>
+            <p>add a class name to your skill, as it will be required later.</p>
+        </li>
+    </ul>
+    <pre>
+        <code>
+            <p> // add class name to your skill</p> 
+
+            &lt;div class="the-progress"&gt;&lt;span class="skill class name"&gt;&lt;/span&gt;&lt;/div&gt;
+        </code>
+    </pre>
+    <ul>
+        <li>
+            Navigate to the JavaScript file and declare your skill class as a variable, like this:
+        </li>
+    </ul>
+    <pre>
+        <code class="language-javascript">
+            let html = document.querySelector(".HTML")
+        </code>
+    </pre>
+    <ul>
+        <li>And then go this part of code and add style to the variable that we create befote with same precent in html element like this:</li>
+    </ul>
+    <pre>
+        <code class="language-javascript">
+            let html = document.querySelector(".HTML")
+                     
+                               // 
+
+            if(window.scrollY >= skills_section.offsetTop - 350){
+                 html.style.width = "90%"
+
+                
+                       //
+            }
+        } 
+        </code>
+    </pre>
+    <h2>How to use contact from ?</h2>
+    <img src="./images/contact.png" alt="">
+    <p>Before anything else, you need to have an SMTP configuration in place to send messages to email addresses.   
+    </p>
+    <h3>What is SMTP ?</h3>
+    <p>SMTP stands for "Simple Mail Transfer Protocol." It is a standard internet protocol used for sending and relaying email messages between email servers. SMTP is responsible for the process of sending outgoing emails from a client or email server to the recipient's email server, and it works collaboratively with other email protocols like POP3 (Post Office Protocol) and IMAP (Internet Message Access Protocol) that are used for receiving emails
+    <h3>How can i get SMTP ?</h3>
+    <P>To set up an SMTP server or obtain SMTP server information, you have a few options:
+        <br>
+        <b>Use Your Email Service Provider's SMTP:</b> If you have an email account with a service provider like Gmail, Yahoo, Outlook, or your organization's email server, you can usually use their SMTP server information to send emails. These providers often provide SMTP server settings and authentication details.
+        <br>
+        <b>Purchase SMTP Services:</b> There are SMTP service providers that offer SMTP servers for sending emails. Some popular options include SendGrid, Mailgun, Amazon SES (Simple Email Service), and SMTP2GO. You can sign up for their services, and they will provide you with SMTP server details, API keys, and other necessary information.
+    </P>
+    <h2>How to Configure SMTP for a Contact Form ?</h2>
+    <p>Configuring SMTP for a contact form is straightforward; you simply need to complete the following settings:</p>
+    <ul>
+        <li>
+            <p>Navigate to the HTML file and locate line 256 to input SMTP information below.</p>
+        </li>
+    </ul>
+    <pre>
+        <code class="language-javascript">
+            function sendEmail() {
+                Email.send({
+            Host : "smtp.elasticemail.com",  // SMTP host 
+            Username : "username",  // SMTP username 
+            Password : "password",   // SMTP password 
+            To : 'them@website.com',  // Distanation email 
+            From : "you@isp.com",    // sender email 
+            Subject : "This is the subject",  // subject 
+            Body: "Name: " + document.getElementById("Name").value 
+           + "<br>" +"Phone Number: " + document.getElementById("phone").value 
+           + "<br>" +  'Website: ' + document.getElementById('website').value 
+           + "<br>" + "Service: " + document.getElementById("service_order").value,
+          }).then(message => alert(message));
+            }
+        </code>
+    </pre>
+    <ul>
+        <li>
+            <p>After filling in the inputs and clicking the 'Send' button, you will receive an email like this</p>
+        </li>
+    </ul>
+    <img src="./images/email.png" alt="">
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js" integrity="sha512-rdhY3cbXURo13l/WU9VlaRyaIYeJ/KBakckXIvJNAQde8DgpOmE+eZf7ha4vdqVjTtwQt69bD2wH2LXob/LB7Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>hljs.highlightAll();</script>
+</html>
